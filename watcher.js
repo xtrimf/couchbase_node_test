@@ -4,10 +4,7 @@ const csv = require('csv-parser')
 const chokidar = require('chokidar');
 
 // create a watch directory if not exist
-if (!fs.existsSync('./watch')) {
-    fs.mkdirSync('./watch')
-    fs.mkdirSync('./watch/processed')
-}
+fs.ensureDirSync('./watch/processed')
 
 // monitor for csv file in 'watch' dir
 chokidar.watch('watch/*.csv', {
